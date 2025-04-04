@@ -1,5 +1,5 @@
 # Donne  la generation de l'utilisateur sur base de son année de naissance
-"""
+
 def generation_utilisateur():
     annee_naissance = int(input("Entrez votre année de naissance: "))
     message = "Vous etes de la génération "
@@ -36,7 +36,8 @@ def enumeration():
         print(i)
 
 enumeration()
-"""
+
+# Affiche les elements d'une liste en excluant un element donné
 
 def affichageListe(liste,exclusion):
     for fruit in liste:
