@@ -98,10 +98,7 @@ def convertisseur():
     else:
         print("Entrez un choix valide (compris entre 1 et 3)")
         
-while True:
-    convertisseur()
-    time.sleep(2)
-    clear_console()
+
 
 
     
