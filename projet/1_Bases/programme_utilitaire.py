@@ -3,6 +3,8 @@ def afficher_menu_principal():
     print("1. Calculatrice")
     print("2. Convertisseur d'unité")
     print("3. Quitter le programme")
+    return int(input("Votre choix: "))
+    
     
     
 def afficher_menu_calculatrice():
@@ -11,10 +13,13 @@ def afficher_menu_calculatrice():
     print("2. Soustraction")
     print("3. Multiplication")
     print("4. Division")
-    print("Retour au menu principal")
+    print("5. Retour au menu principal")
+    return int(input("Choisissez l'operation: "))
+    
     
 def afficher_menu_conversion():
     print("--------Convertisseur d'unites--------")
     print("1. Kilometre en metre")
     print("2. Celsuis en Fehrenheit")
     print("3. Retour au menu principal")
+    return int(input("Choisissez le type de conversion: "))
