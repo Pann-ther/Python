@@ -13,6 +13,12 @@ Il couvre différents concepts, des bases aux notions plus avancées de la progr
 │ ├── 📁 POO/ 
 │ └── ... 
 │
+├── 📁 projet/ (Contient tous les exercices, classés par thème)
+│ ├── 📁 bases/
+│ ├── 📁 strutures_avancées/ 
+│ ├── 📁 POO/ 
+│ └── ... 
+│
 ├── 📁 scripts/ (Scripts fonctionnels, classés par usage)
 │ ├── 📁 fichiers/         
 │ ├── 📁 reseau/           
