@@ -1,3 +1,6 @@
+import os
+import time
+
 def afficher_menu_principal():
     print("--------Menu Principal--------")
     print("1. Calculatrice")
@@ -21,8 +24,15 @@ def afficher_menu_conversion():
     print("3. Retour au menu principal")
     return int(input("Choisissez le type de conversion: "))
 
+def clear_console():
+    if os.name == "nt":
+        os.system('cls')
+    else:
+        os.system('clear')
+    
+
 def saisieValeur(msg):
-    return float(input(f"Entrez {msg}: "))
+    return float(input(f"{msg}: "))
 
 def addition(a,b):
     return a+b
@@ -35,3 +45,51 @@ def multiplication(a,b):
 
 def division(a,b):
     return a/b
+
+def conversion_kilometre_metre(a):
+    return a*1000
+
+def conversion_celsuis_fehrenheit(a):
+    return (a * (9/5))+32
+
+def calculette():
+    choix = afficher_menu_calculatrice()
+    
+    if choix == 1:
+        a = saisieValeur("Entrez la valeur 1")
+        b = saisieValeur("Entrez la valeur 2")
+        print(addition(a,b))
+        
+    elif choix == 2:
+        a = saisieValeur("Entrez la valeur 1")
+        b = saisieValeur("Entrez la valeur 2")
+        print(soustraction(a,b))
+        
+    elif choix == 3:
+        a = saisieValeur("Entrez la valeur 1")
+        b = saisieValeur("Entrez la valeur 2")
+        print(multiplication(a,b))
+        
+    elif choix == 4:
+        a = saisieValeur("Entrez la valeur 1")
+        b = saisieValeur("Entrez la valeur 2")
+        print(division(a,b))
+        
+    elif choix == 5:
+        afficher_menu_principal()
+        
+    else:
+        print("Entrez un choix valide (compris entre 1 et 5)")
+
+while True:
+    calculette()
+    time.sleep(2)
+    clear_console()
+    
+        
+        
+    
+
+
+
+
