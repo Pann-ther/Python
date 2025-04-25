@@ -79,12 +79,9 @@ def calculette():
         afficher_menu_principal()
         
     else:
-        print("Entrez un choix valide (compris entre 1 et 5)")
+        print("Entrez un choix valide (compris entre 1 et 5)") 
 
-while True:
-    calculette()
-    time.sleep(2)
-    clear_console()
+
     
         
         
