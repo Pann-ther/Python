@@ -58,28 +58,50 @@ def calculette():
     if choix == 1:
         a = saisieValeur("Entrez la valeur 1")
         b = saisieValeur("Entrez la valeur 2")
-        print(addition(a,b))
+        print(f"{a} + {b} = {addition(a,b)}")
         
     elif choix == 2:
         a = saisieValeur("Entrez la valeur 1")
         b = saisieValeur("Entrez la valeur 2")
-        print(soustraction(a,b))
+        print(f"{a} - {b} = {soustraction(a,b)}")
         
     elif choix == 3:
         a = saisieValeur("Entrez la valeur 1")
         b = saisieValeur("Entrez la valeur 2")
-        print(multiplication(a,b))
+        print(f"{a} * {b} = {multiplication(a,b)}")
         
     elif choix == 4:
         a = saisieValeur("Entrez la valeur 1")
         b = saisieValeur("Entrez la valeur 2")
-        print(division(a,b))
+        print(f"{a} / {b} = {division(a,b)}")
         
     elif choix == 5:
         afficher_menu_principal()
         
     else:
         print("Entrez un choix valide (compris entre 1 et 5)") 
+        
+def convertisseur():
+    choix = afficher_menu_conversion()
+    
+    if choix == 1:
+       a = saisieValeur("Entrez la valeur a convertir") 
+       print(f"{a} km vaut {conversion_kilometre_metre(a)} m")
+       
+    elif choix == 2:
+        a = saisieValeur("Entrez la valeur a convertir")
+        print(f"{a} C vaut {conversion_celsuis_fehrenheit(a)} F")
+        
+    elif choix == 3:
+        afficher_menu_principal()
+        
+    else:
+        print("Entrez un choix valide (compris entre 1 et 3)")
+        
+while True:
+    convertisseur()
+    time.sleep(2)
+    clear_console()
 
 
     
