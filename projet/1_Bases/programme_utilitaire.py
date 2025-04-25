@@ -1,6 +1,7 @@
 import os
 import time
 
+# Fonctions d'affichage des menus
 def afficher_menu_principal():
     print("--------Menu Principal--------")
     print("1. Calculatrice")
@@ -24,16 +25,17 @@ def afficher_menu_conversion():
     print("3. Retour au menu principal")
     return int(input("Choisissez le type de conversion: "))
 
+# Fonctions utilitaires
 def clear_console():
     if os.name == "nt":
         os.system('cls')
     else:
         os.system('clear')
-    
 
 def saisieValeur(msg):
     return float(input(f"{msg}: "))
 
+# Fonctions de calculs
 def addition(a,b):
     return a+b
 
@@ -44,14 +46,20 @@ def multiplication(a,b):
     return a*b
 
 def division(a,b):
-    return a/b
+    if b == 0:
+        print(f"Vous ne pouvez pas diviser {a} par {b}")
+    else:
+        return a/b
 
+#Fonctions de conversion
 def conversion_kilometre_metre(a):
     return a*1000
 
 def conversion_celsuis_fehrenheit(a):
     return (a * (9/5))+32
 
+
+# Fonction gestion des calculs
 def calculette():
     choix = afficher_menu_calculatrice()
     
@@ -73,14 +81,19 @@ def calculette():
     elif choix == 4:
         a = saisieValeur("Entrez la valeur 1")
         b = saisieValeur("Entrez la valeur 2")
-        print(f"{a} / {b} = {division(a,b)}")
+        if b == 0:
+            print(f"Vous ne pouvez pas diviser {a} par {b}")
+        else:
+            print(f"{a} / {b} = {division(a,b)}")
         
     elif choix == 5:
-        afficher_menu_principal()
+        clear_console()
+        code_principal()
         
     else:
         print("Entrez un choix valide (compris entre 1 et 5)") 
-        
+
+# Fonction gestion des conversions        
 def convertisseur():
     choix = afficher_menu_conversion()
     
@@ -93,10 +106,43 @@ def convertisseur():
         print(f"{a} C vaut {conversion_celsuis_fehrenheit(a)} F")
         
     elif choix == 3:
-        afficher_menu_principal()
+        clear_console()
+        code_principal()
         
     else:
         print("Entrez un choix valide (compris entre 1 et 3)")
+
+# Fonction principal
+def code_principal():
+    choix = afficher_menu_principal()
+    
+    if choix == 1:
+        clear_console()
+        while True:
+            calculette()
+            time.sleep(2)
+            clear_console()
+        
+    elif choix == 2:
+        clear_console()
+        while True:
+            convertisseur()
+            time.sleep(2)
+            clear_console()
+    
+    elif choix == 3:
+        clear_console()
+        print("Vous allez quitter le programme")
+        time.sleep(2)
+        clear_console()
+        exit
+        
+    else:
+        print("Entrez un choix valide (compris entre 1 et 3)")   
+
+# Execution
+code_principal()
+    
         
 
 
