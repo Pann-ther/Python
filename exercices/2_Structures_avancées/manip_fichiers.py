@@ -58,45 +58,46 @@ with open("test2.csv","a+",newline="") as fichier:
     contenu.writerows(donnees)
     fichier.seek(0)
     print(fichier.read())
-    # Ajout d'un eleve au fichier csv et lecture
+    
+# Ajout d'un eleve au fichier csv et lecture
 nouvel_eleve = ["Heloise",21,19]
 with open("notesEleves.csv", "a", newline="") as fichier:
-    lecteur = csv.writer(fichier)
-    lecteur.writerow(nouvel_eleve)
+    ajout = csv.writer(fichier)
+    ajout.writerow(nouvel_eleve)
     
 with open("notesEleves.csv","r") as fichier:
     contenu = csv.reader(fichier)
     for line in contenu:
         print(line)
-
-
-"""
  # Affichage des informations specifiques d'un éléve
 with open("notesEleves.csv","r") as fichier:
-    lecture = csv.DictReader(fichier)
-    for ligne in lecture:
+    contenu = csv.DictReader(fichier)
+    for ligne in contenu:
         if ligne["Nom"]=="Vero":
             print(ligne)
             
 # Lecture du fichier csv ligne par ligne
 with open("test.csv", "r", newline='') as fichier:
-    lecture = csv.reader(fichier)
-    for ligne in lecture:
-        print(ligne)     
+    contenu = csv.reader(fichier)
+    for ligne in contenu:
+        print(ligne)  
+
+"""
+   
 
             
 # Modification de l'age d'un éléve
 with open("notesEleves.csv", "r") as fichier:
-    lecture = list(csv.reader(fichier))
+    contenu = list(csv.reader(fichier))
     
-    for ligne in lecture:
+    for ligne in contenu:
         if ligne[0] == "Heloise":
-            ligne[1] = "28"
+            ligne[1] = "18"
         print(ligne)
                    
 with open ("notesEleves.csv","w", newline="") as fichier:
     ecriture = csv.writer(fichier)
-    ecriture.writerows(lecture)
+    ecriture.writerows(contenu)
 
     
     
