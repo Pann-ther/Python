@@ -1,12 +1,6 @@
 import csv
-def existance_utilisateur(prenom):
-    with open("contacts.csv","r") as fichier:
-        lecteur = csv.reader(fichier)
-        for line in lecteur:
-            if line[0] == prenom:
-                return True
-        return False
-    
+
+# Fonction d'affichage
 def afficher_menu():
     print("------Menu------")
     print("1. Afficher les contacts")
@@ -22,7 +16,15 @@ def afficher_contacts():
         contenu = csv.DictReader(fichier)
         for line in contenu:
             print(f"Prenom : {line["Prenom"]}, Nom: {line["Nom"]}, Telephone: {line["Telephone"]}, Email: {line["Email"]}")
-
+            
+def choix_champs():
+    print("1. Prenom")
+    print("2. Nom")
+    print("3. Telephone")
+    print("4. Mail")
+    return (input("Votre choix: "))   
+        
+# Fonctions utilitaires
 def ajouter_contact():
     prenom = input("Entrez le prenom du contact")
     nom = input("Entrez le nom du contact")
@@ -50,18 +52,34 @@ def supprimer_contact():
         print(f"{prenom} a bien ete supprime des contacts")
     else:
         print(f"{prenom} n'a pas ete trouve dans les contacts")
-    
-    
-
+  
 def modifier_contact():
     prenom = input("Entrez le prenom du contact que duquel vous souhaitez modifier les valeurs")
     nom = input("Entrez le nom du contact que duquel vous souhaitez modifier les valeurs")
-    champs = input("Entrez le champs que vous souhaitez modifier")
+    champs = choix_champs()
     valeur = input("Entrez la nouvelle valeur ")
     
     with open("contrats.csv","r") as fichier:
-        lecteur = csv.reader(fichier)
+        lecteur = list(csv.reader(fichier))
         
         for line in lecteur:
-            line[] = 
+            if line[0] == prenom & line[1] == nom:
+                line[champs] = valeur
+                print(line)
+                
+    with open("contacts.csv","w") as fichier:
+        ecriture = csv.writer(fichier)
+        ecriture.writerows(lecteur)
+        
+def existance_utilisateur(prenom):
+    with open("contacts.csv","r") as fichier:
+        lecteur = csv.reader(fichier)
+        for line in lecteur:
+            if line[0] == prenom:
+                return True
+        return False     
+  
+# Fonction principal  
+def code_principale():
+                  
     
