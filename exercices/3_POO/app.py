@@ -24,7 +24,6 @@ class app:
         nom = input("Entrer le nom du technicien: ").upper
         self.__compteur += 1
         id = self.__compteur
-
         salaire = input("Entrer le salaire du technicien: ").strip()
         sf = salaire.replace(" ","")
         astreinte = None

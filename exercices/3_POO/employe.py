@@ -80,5 +80,4 @@ print(tech1.afficher_infos())
 man1 = Manager("Jane","Doe",12,34000,5000)
 print(man1.afficher_infos())
 
-r1 = encapsulation.Rectangle(10,20)
-r1.mesures()
+
