@@ -1,5 +1,6 @@
 import random
 class MonitoredDevice:
+    # Pour avoir un compteur commun a tout les appareils du parc
     id = 1
 
     def init(self, name, ip, location,status,state, cpu_usage, id=None):
@@ -53,6 +54,7 @@ class MonitoredDevice:
     def set_cpu_usage(self,usage):
         self.cpu_usage = usage
 
+    # Gestion de l'actualisation des valaurs dynamiques des appareils
     def generate_random_value(self,min_var,max_var,value):
         variation = random.uniform(min_var,max_var)
         return value + variation
