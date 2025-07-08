@@ -32,3 +32,8 @@ class Server(md.MonitoredDevice):
     def update_disk_usage(self):
         new_value = md.MonitoredDevice.generate_random_value(-2,2,self.disk_usage())
         self.disk_usage = max(0, min(100, new_value))
+        
+    def update_all(self):
+        Server.update_disk_usage()
+        Server.update_ram_usage()
+        Server.update_cpu_usage()

@@ -27,5 +27,10 @@ class NetworkDevice(md.MonitoredDevice):
     def update_bandwidth_usage(self):
         new_value = md.MonitoredDevice.generate_random_value(-20,20,self.get_bandwidth_usage())
         self.update_bandwidth_usage = max(0,min(100,new_value))
+        
+    def update_all(self):
+        NetworkDevice.update_cpu_usage()
+        NetworkDevice.update_latency()
+        NetworkDevice.update_bandwidth_usage()
     
     
