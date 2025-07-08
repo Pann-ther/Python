@@ -26,9 +26,9 @@ class Server(md.MonitoredDevice):
         
     # Gestion de l'actualisation des valeurs dynamiques
     def update_ram_usage(self):
-        new_value = md.MonitoredDevice.generate_random_value(20,20,self.ram_usage())
+        new_value = md.MonitoredDevice.generate_random_value(-20,20,self.ram_usage())
         self.ram_usage = max(0,min(100,new_value))
         
     def update_disk_usage(self):
-        new_value = md.MonitoredDevice.generate_random_value(20,20,self.disk_usage())
+        new_value = md.MonitoredDevice.generate_random_value(-2,2,self.disk_usage())
         self.disk_usage = max(0, min(100, new_value))

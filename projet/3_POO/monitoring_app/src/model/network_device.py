@@ -21,10 +21,11 @@ class NetworkDevice(md.MonitoredDevice):
         
     # Gestion de l'actualisation des valeurs dynamiques  
     def update_latency(self):
-        new_value = md.MonitoredDevice.generate_random_value(20,20,self.get_latency())
+        new_value = md.MonitoredDevice.generate_random_value(-10,10,self.get_latency())
         self.latency = max(0,min(100,new_value))
         
     def update_bandwidth_usage(self):
-        new_value = md.MonitoredDevice.generate_random_value(20,20,self.get_bandwidth_usage())
+        new_value = md.MonitoredDevice.generate_random_value(-20,20,self.get_bandwidth_usage())
         self.update_bandwidth_usage = max(0,min(100,new_value))
+    
     
