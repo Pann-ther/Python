@@ -57,10 +57,10 @@ class MonitoredDevice:
     # Gestion de l'actualisation des valaurs dynamiques des appareils
     def generate_random_value(self,min_var,max_var,value):
         variation = random.uniform(min_var,max_var)
-        return value + variation
+        return int(value + variation)
     
     def update_cpu_usage(self):
-        new_value = self.generate_random_value(20,20,self.get_cpu_usage())
+        new_value = self.generate_random_value(-20,20,self.get_cpu_usage())
         self.cpu_usage = max(0, min(100,new_value))
 
    
