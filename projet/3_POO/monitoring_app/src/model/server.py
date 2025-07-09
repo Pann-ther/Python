@@ -1,8 +1,8 @@
-import monitored_device as md
+import src.model.monitored_device as md
 class Server(md.MonitoredDevice):
     
     def __init__(self,name, ip, location,status,state, cpu_usage, ram_usage, disk_usage, id=None):
-        super().__init__(name,ip,location,status,state,cpu_usage,id=None)
+        super().__init__(name,ip,location,status,state,cpu_usage,id)
         self.ram_usage = ram_usage
         self.disk_usage = disk_usage
         
@@ -26,14 +26,14 @@ class Server(md.MonitoredDevice):
         
     # Gestion de l'actualisation des valeurs dynamiques
     def update_ram_usage(self):
-        new_value = md.MonitoredDevice.generate_random_value(-20,20,self.ram_usage())
+        new_value = self.generate_random_value(-20,20,self.get_ram_usage())
         self.ram_usage = max(0,min(100,new_value))
         
     def update_disk_usage(self):
-        new_value = md.MonitoredDevice.generate_random_value(-2,2,self.disk_usage())
+        new_value = self.generate_random_value(-2,2,self.get_disk_usage())
         self.disk_usage = max(0, min(100, new_value))
         
     def update_all(self):
-        Server.update_disk_usage()
-        Server.update_ram_usage()
-        Server.update_cpu_usage()
+        self.update_disk_usage()
+        self.update_ram_usage()
+        self.update_cpu_usage()

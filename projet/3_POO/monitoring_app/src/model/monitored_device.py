@@ -3,7 +3,7 @@ class MonitoredDevice:
     # Pour avoir un compteur commun a tout les appareils du parc
     id = 1
 
-    def init(self, name, ip, location,status,state, cpu_usage, id=None):
+    def __init__(self, name, ip, location,status,state, cpu_usage, id=None):
         self.id = MonitoredDevice.id
         MonitoredDevice.id += 1
         self.name = name
@@ -59,8 +59,8 @@ class MonitoredDevice:
         variation = random.uniform(min_var,max_var)
         return value + variation
     
-    def update_cpu_value(self):
-        new_value = MonitoredDevice.generate_random_value(20,20,self.get_cpu_usage)
+    def update_cpu_usage(self):
+        new_value = self.generate_random_value(20,20,self.get_cpu_usage())
         self.cpu_usage = max(0, min(100,new_value))
 
    
